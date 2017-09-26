@@ -109,6 +109,103 @@ class StringFunctions{
 	}
 }
 
+class ArrayFunctions{
+
+	public function __constructor(){
+	echo 'hello';
+	}
+
+	function printArray($grades){
+	  $this->getCommandDescription("Print");	
+ 	  print_r($grades);
+	  $this->getHorizontalRule();
+	}
+
+	function changeKeyCase($grades){
+	  $this->getCommandDescription("change key case");
+	  print_r(array_change_key_case($grades,CASE_UPPER));
+	  $this->getHorizontalRule();
+	}
+
+	function chunkArray($grades){
+ 	  $this->getCommandDescription("Chunk");
+          print_r(array_chunk($grades,3));
+  	  $this->getHorizontalRule();
+        } 
+
+        function getArrayKeys($grades){
+          $this->getCommandDescription("Get Keys");
+          print_r(array_keys($grades));
+          $this->getHorizontalRule();
+        }
+
+        function countArrayValues($grades){
+          $this->getCommandDescription("Count Values");
+          print_r(array_count_values($grades));
+          $this->getHorizontalRule();
+        } 
+
+        function arraySize($grades){
+          $this->getCommandDescription("Sizeof");
+          echo "Size ::". sizeof($grades);
+	  $this->getHorizontalRule();
+       }
+
+	function mergeArray($grades){
+	$this->getCommandDescription("Merge ");
+	$grades2 = array("Sean"=>"A");
+	print_r(array_merge($grades,$grades2));
+	$this->getHorizontalRule();
+	}
+
+	function reverseArray($grades){
+	  $this->getCommandDescription("Reverse");
+	  print_r(array_reverse($grades));
+	  $this->getHorizontalRule();
+	}
+
+	function sliceArray($grades){
+	  $this->getCommandDescription("Slice");
+	  print_r(array_slice($grades,1));
+	  $this->getHorizontalRule();
+	}
+
+	function sum(){
+	  $this->getCommandDescription("Sum");
+	  $salary = array(1000,1100,1200);
+	  print_r(array_sum($salary));
+	  $this->getHorizontalRule();
+	}
+	
+	 public function getCommandDescription($commandName){
+           echo "<h1> $commandName  Array function demo </h1>";
+         }
+
+         public function getHorizontalRule(){
+           echo '<hr>';
+         
+	}
+
+
+	public function callArrayFunctions($grades){
+	$this-> printArray($grades);
+	$this-> changeKeyCase($grades);
+	$this-> chunkArray($grades);
+	$this-> getArrayKeys($grades);
+	$this-> countArrayValues($grades);
+	$this->arraySize($grades);
+	$this->mergeArray($grades);
+	$this->reverseArray($grades);
+	$this->sliceArray($grades);
+	$this->sum();
+}
+
+}
+$obj2 = new ArrayFunctions();
+$grades = array("Jack"=>"A","Mark"=>"B","Joe"=>"C","Peter"=>"D","Rose"=>"E","Lucy"=>"F");
+$obj2->callArrayFunctions($grades);
+
+
 	$obj = new StringFunctions();
 	$inputString = "Learning PHP Programming ";
 	$obj-> call($inputString);
