@@ -1,112 +1,110 @@
 <?php
+class HtmlTags{
+
+        public static function getHorizontalRule(){
+	            return '<hr>';
+	}
+	public static function getHeaderDescription($commandName){
+	     return  "<h1> $commandName  function demo </h1>";
+	}
+	
+}
 
 class StringFunctions{
 
-	public function __constructor(){
+
+	private $inputString;
+	private $html;
+
+	 public function __construct($inputString){
+	  $this->inputString = $inputString;
+          echo '**************************Strings and Arrays in php********************<br>';
+	  echo 'Input String : Learning PHP Programming';
+	  }
+
+	  public function getStringLength(){
+	  $text = HtmlTags :: getHeaderDescription("Length");
+	  $text .= 'The length of String is :'. Strlen($this->inputString); 
+	  $this->html.=  $text .= HtmlTags:: getHorizontalRule();
+	  }
+
+
+	  public function getStringWordCount(){
+	  $text = HtmlTags :: getHeaderDescription("String word count");
+	  $text .= 'Word count :' . Str_word_count($this->inputString);
+	  $this->html.=  $text .= HtmlTags:: getHorizontalRule();
+	  }
+
+	  public function replaceText(){
+	  $text = HtmlTags :: getHeaderDescription("Replace Text");
+	  $text .= 'New String : ' . str_replace("PHP","Java",$this->inputString);
+	  $this->html.=  $text .= HtmlTags:: getHorizontalRule();
+	  }
+
+	  public function reverseString(){
+	  $text = HtmlTags :: getHeaderDescription("Reverse String");
+	  $text .= 'Reverse String : ' . strrev($this->inputString);
+	  $this->html.=  $text .= HtmlTags:: getHorizontalRule();
+	  }
 	
-	}	
-
-	public function getStringLength($inputString){
-          $commandName = "String Length";
-	  $this -> getCommandDescription($commandName);
-	  echo 'The length of String is :' . Strlen($inputString);
-	  $this -> getHorizontalRule();
-	}
-
-	
-	public function getStringWordCount($inputString){
-	  $commandName = "String word count";
-	  $this -> getCommandDescription($commandName);
-	  echo 'Word count :' . Str_word_count($inputString);
-	  $this -> getHorizontalRule();
-	}
-
-	public function replaceText($inputString){
-	  $commandName = "Replace Text";
-	  $this -> getCommandDescription($commandName);
-          echo "Input String :  $inputString <br>";
-          echo 'New String : ' . str_replace("PHP","Java",$inputString);
-          $this -> getHorizontalRule();
-        }
-
-	public function reverseString($inputString){
-          $commandName = "Reverse String";
-	  $this -> getCommandDescription($commandName);
-	  echo "Input String :  $inputString <br>";
-	  echo 'Reverse String : ' . strrev($inputString);
-	  $this -> getHorizontalRule();
-        }
-
 	public function convertToTitleCase(){
-          $commandName = "Lower to title case";
-	  $this -> getCommandDescription($commandName);
-	  $inputString = "learn php programming";
-	  echo "Input String :  $inputString <br>";
-	  echo 'Output String : ' . ucwords($inputString);
-	  $this -> getHorizontalRule();
+	$text = HtmlTags :: getHeaderDescription("Lower to title case");
+	$inputString = "learning php programming";
+	$text .=  ucwords($inputString);
+	$this->html.=  $text .= HtmlTags:: getHorizontalRule();
 	}
 
 	public function toLowerCase(){
-	  $commandName = "Lowercase";
-	  $this -> getCommandDescription($commandName);
-	  $inputString = "LEARN PROGRAMMING";
-	  echo "Input String : $inputString <br>";
-	  echo 'New String :' . strtolower($inputString);
-	  $this -> getHorizontalRule();
+	$text = HtmlTags :: getHeaderDescription("Lowercase");
+	$inputString = "LEARN PHP PROGRAMMING";
+	$text .= strtolower($inputString);
+	$this->html.=  $text .= HtmlTags:: getHorizontalRule();
 	}
 
 	public function toUpperCase(){
-          $commandName = "Upper case";
-	  $this -> getCommandDescription($commandName);
-	  $inputString = "i am learning php";
-	  echo "Input String : $inputString<br>";
-	  echo 'New String is:' . strtoupper($inputString);
-	  $this -> getHorizontalRule();
+	$text = HtmlTags :: getHeaderDescription("Upper case");
+	$inputString = "i am learning php";
+	$text .= strtoupper($inputString);
+	$this->html.=  $text .= HtmlTags:: getHorizontalRule();
 	}
+
+	public function repeatString(){
+	$text = HtmlTags :: getHeaderDescription("Repeat String");
+	$text .= str_repeat($this->inputString,5);
+	$this->html.=  $text .= HtmlTags:: getHorizontalRule();
+	}
+
 	
-	public function repeatString($inputString){
-	  $commandName = "Repeat String";
-	  $this -> getCommandDescription($commandName);
-	  echo 'Output :' . str_repeat($inputString,5);
-	  $this -> getHorizontalRule();
+	public function subString(){
+	$text = HtmlTags :: getHeaderDescription("Sub String");
+	$text .= substr($this->inputString,0,8);
+	$this->html.=  $text .= HtmlTags:: getHorizontalRule();
+	  }
+	    
+	public function compareString(){
+	$text = HtmlTags :: getHeaderDescription("Compare String");
+	$text.= strcmp($this->inputString,$this->inputString);
+	$this->html.=  $text .= HtmlTags:: getHorizontalRule();
 	}
 
-	public function subString($inputString){
-	  $commandName = "Sub String";
-	  $this -> getCommandDescription($commandName);
-	  echo 'Output :' . substr($inputString,0,8);
-	  $this -> getHorizontalRule();
-	}
-	
-	public function compareString($inputString){
-	  $commandName = "Compare String";
-	  $this -> getCommandDescription($commandName);
-	  echo "String compared are String 1 : $inputString<br>";
-	  echo "Strng 2 : $inputString<br>";
-	  echo 'Output :' . strcmp($inputString,$inputString);
-	  $this -> getHorizontalRule();
-	}
 
-	public function getCommandDescription($commandName){
-	  echo "<h1> $commandName  function demo </h1>";
-	}
-
-	public function getHorizontalRule(){
-	  echo '<hr>';
-	}
-
-	public function call($inputString){
-	  $this-> getStringLength($inputString);
-	  $this-> getStringWordCount($inputString);
-	  $this-> replaceText($inputString);
-	  $this-> reverseString($inputString);
+	public function call(){
+	  $this-> getStringLength();
+	  $this-> getStringWordCount();
+	  $this-> replaceText();
+	  $this-> reverseString();
 	  $this-> convertToTitleCase();
 	  $this-> toLowerCase();
 	  $this-> toUpperCase();
-	  $this-> repeatString($inputString);
-	  $this-> subString($inputString);
-	  $this-> compareString($inputString);
+	  $this-> repeatString();
+	  $this-> subString();
+	  $this-> compareString();
 	}
+
+	public function __destruct(){
+	   print($this->html);
+        }
+
 }
 
 class ArrayFunctions{
@@ -206,6 +204,5 @@ $grades = array("Jack"=>"A","Mark"=>"B","Joe"=>"C","Peter"=>"D","Rose"=>"E","Luc
 $obj2->callArrayFunctions($grades);
 
 
-	$obj = new StringFunctions();
-	$inputString = "Learning PHP Programming ";
-	$obj-> call($inputString);
+	$obj = new StringFunctions("Learning PHP Programming ");
+	$obj-> call();
